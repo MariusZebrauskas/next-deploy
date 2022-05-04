@@ -27,7 +27,7 @@ export default function Home() {
       </button>
       <br />
       <br />
-      <button onClick={getData}>get</button>
+      <button onClick={getData}>get from lambda</button>
       <br />
       <br />
       <br />
