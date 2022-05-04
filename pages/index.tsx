@@ -1,10 +1,50 @@
-import styled from 'styled-components'
-
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+import Link from 'next/link';
+import axios from 'axios';
+import { useState } from 'react';
 
 export default function Home() {
-  return <Title>My page</Title>
+  const [data, setData] = useState('');
+  const [postData, setPostData] = useState(' ');
+
+  const getData = () => {
+    axios
+      .get('http://localhost:3000/api/test')
+      .then((data) => setData(data.data.message))
+      .catch((err) => console.log(err));
+  };
+
+
+  const postDataDB = () => {
+    axios
+      .post('https://jsonplaceholder.typicode.com/posts', {name: 'post'})
+      .then((data) =>setPostData(data.data.id))
+      .catch((err) => console.log(err));
+  };
+  return (
+    <div>
+      <button>
+        <Link href='/test'>test</Link>
+      </button>
+      <br />
+      <br />
+      <button onClick={getData}>get</button>
+      <br />
+      <br />
+      <br />
+      <button onClick={postDataDB}>post</button>
+      <br />
+    
+      <br />
+      <br />
+      <p style={{color:"red"}}>
+
+      {data}
+      </p>
+      <br />
+     
+      <br />
+      <br />
+      <p style={{color:"blue"}}>{postData}</p>
+    </div>
+  );
 }
