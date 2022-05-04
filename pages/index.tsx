@@ -27,7 +27,7 @@ export default function Home() {
       </button>
       <br />
       <br />
-      <button onClick={getData}>get from lambda</button>
+      <button onClick={getData}>get from lambda updated rute</button>
       <br />
       <br />
       <br />
