@@ -8,7 +8,7 @@ export default function Home() {
 
   const getData = () => {
     axios
-      .get('http://localhost:3000/api/test')
+      .get('https://next-deploy-liart.vercel.app/api/test')
       .then((data) => setData(data.data.message))
       .catch((err) => console.log(err));
   };
